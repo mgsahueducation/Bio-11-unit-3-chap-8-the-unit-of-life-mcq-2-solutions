@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MG SAHU EDUCATION BLOG - NEET Biology Practice</title>
+    <title>MG SAHU EDUCATION BLOG - NEET Biology Mega Practice</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -485,7 +485,7 @@
 
             <!-- Q30 -->
             <div class="question-box" id="qBox_30">
-                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation.<br>B = Both True + R is NOT correct explanation.<br>C = A is True, R is False.<br>D = Both False (or A False, R True).</div>
+                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation.<br>B = Both True + R is NOT correct explanation.<br>C = A is True, R is False.<br>D = Both False.</div>
                 <div class="question-text">30. <strong>Assertion (A):</strong> In studying physiological and behavioural processes, one can take a physico-chemical approach using cell-free systems.<br><strong>Reason (R):</strong> A physico-chemical approach enables us to describe various biological processes in molecular terms.</div>
                 <label class="option-label"><input type="radio" name="q30" value="A"> A</label>
                 <label class="option-label"><input type="radio" name="q30" value="B"> B</label>
@@ -559,9 +559,9 @@
         </form>
     </div>
 
-    <!-- Screen Displays Result Metrics -->
+    <!-- Final Block Summary Screen -->
     <div id="result-screen">
-        <h2>🎉 Mock Assessment Completed!</h2>
+        <h2>🎉 Assessment Session Complete!</h2>
         <p>Your responses have been processed through the NCERT data tracking sheet.</p>
         <div class="score-display" id="finalScoreText">0 / 35</div>
         <div class="nav-buttons" style="justify-content: center;">
@@ -577,41 +577,41 @@
     const validatedQuestions = {};
 
     const quizAnswers = {
-        q1: { correct: "B", exp: "<strong>NCERT Context:</strong> Section introduction states that the physico-chemical approach to study biological structures in molecular terms is termed 'Reductionist Biology'." },
-        q2: { correct: "B", exp: "<strong>NCERT Context:</strong> The biography profile mentions G.N. Ramachandran published the triple helical structure configurations of collagen in the journal Nature in 1954." },
-        q3: { correct: "C", exp: "<strong>NCERT Context:</strong> Factual details state that the analysis of allowed conformations of protein structures maps through the 'Ramachandran plot'." },
-        q4: { correct: "B", exp: "<strong>NCERT Context:</strong> Text notes G.N. Ramachandran was the specific founder of the 'Madras school' of conformational analysis of biopolymers." },
-        q5: { correct: "B", exp: "<strong>NCERT Context:</strong> Biography states that while at Cambridge University, Ramachandran met Linus Pauling and was deeply influenced by his models." },
-        q6: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.1 explicitly records: 'Antonie Von Leeuwenhoek first saw and described a live cell.'" },
-        q7: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.2 states that Schwann concluded, based on plant tissue analytics, that the cell wall presence is a unique signature character." },
-        q8: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.3 explicitly details: 'Mycoplasmas... are only 0.3 mm in length while bacteria could be 3 to 5 µm. Human red blood cells are about 7.0 µm in diameter.'" },
-        q9: { correct: "D", exp: "<strong>NCERT Context:</strong> Section 8.4 notes that the characteristic cell membrane infolding extensions present inside prokaryotes are called mesosomes." },
-        q10: { correct: "B", exp: "<strong>NCERT Context:</strong> Section introduction notes that demonstrating living processes requires the structural integrity of cellular organization." },
-        q11: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.1 establishes: 'In human beings, the membrane of the erythrocyte has approximately 52 per cent protein and 40 per cent lipids.'" },
-        q12: { correct: "A", exp: "<strong>NCERT Context:</strong> Chapter summary text explicitly isolates locations: 'The grana, in the plastid, is the site of light reactions and the stroma of dark reactions.'" },
-        q13: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.4.2 explicitly details prokaryotic configuration: '...made of two subunits - 50S and 30S units which when present together form 70S prokaryotic ribosomes.'" },
-        q14: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.4.2 structural details show that prokaryotic ribosomes measure roughly 15 nm by 20 nm in size." },
-        q15: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.2 sets: 'Algae have cell wall, made of cellulose, galactans, mannans and minerals like calcium carbonate...'" },
-        q16: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.5.2 sets: 'The middle lamella is a layer mainly of calcium pectate which holds or glues the different neighbouring cells together.'" },
-        q17: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.8 states the axoneme core possesses 9 peripheral microtuble doublets arranged radially along with one centrally located pair." },
-        q18: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.5.10 notes a single human cell distributes roughly a 2-metre total thread allocation of DNA across its chromosomes." },
-        q19: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.5.10 classifies chromosomes: 'In case of acrocentric chromosome the centromere is situated close to its end forming one extremely short and one very long arm...'" },
-        q20: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.10 details: 'Nucleus as a cell organelle was first described by Robert Brown as early as 1831.'" },
-        q21: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.10 details: 'Later the material of the nucleus stained by the basic dyes was given the name chromatin by Flemming.'" },
-        q22: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.4.1 notes that pigment-storing membranous cytoplasmic extensions present in cyanobacteria are chromatophores." },
-        q23: { correct: "A", exp: "<strong>NCERT Context:</strong> Section 8.3 notes animal cells house a non-membrane bound centrosome configuration designed to facilitate division." },
-        q24: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is false because macroscopic description filters only documented diversity signatures. Statement II matches the text definition." },
-        q25: { correct: "A", exp: "<strong>NCERT Analysis:</strong> Both structural statements are true, matching the text regarding ribosomes occurring on rough ER, inside plastids/mitochondria, and free in cytoplasm." },
-        q26: { correct: "A", exp: "<strong>NCERT Analysis:</strong> Both statements accurately map text facts. The growth capacity belongs to the primary layer, while secondary walls deposit on the inner boundary." },
-        q27: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is false because it inverts standard definitions (chloroplasts store chlorophyll). Statement II is explicitly text-validated." },
-        q28: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is completely false because the text explicitly emphasizes that pili and fimbriae 'do not play a role in motility.' Statement II is true." },
-        q29: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is incorrect because the text states the nucleolus completely lacks an individual membrane system boundary layer. Statement II is correct." },
-        q30: { correct: "A", exp: "<strong>Logic Architecture:</strong> Both facts are correct. The capacity to translate structural reactions into precise molecular variables provides the explanation for adopting a physico-chemical system approach." },
-        q31: { correct: "A", exp: "<strong>Logic Architecture:</strong> The absolute structural failure of any partial, sub-cellular combination to sustain an independent lifecycle is the logical proof that the whole cell forms the fundamental baseline unit." },
-        q32: { correct: "A", exp: "<strong>Logic Architecture:</strong> The dynamic lateral shifting movements executed by proteins across the lipid matrix layer define the parameter used to measure overall membrane fluidity." },
-        q33: { correct: "A", exp: "<strong>Logic Architecture:</strong> The architectural boundary barrier separating internal matrix contents from outside factors is created by the dual parallel membrane design containing a 10-50 nm perinuclear zone." },
-        q34: { correct: "A", exp: "<strong>Logic Architecture:</strong> The containment of the chromatin matrix network (which houses DNA elements) explains why the nucleus serves as the operational hub controlling heredity." },
-        q35: { correct: "A", exp: "<strong>Logic Architecture:</strong> Both are true. The statement in the reason accurately defines why these three organelles are excluded from the endomembrane system—their metabolic steps do not dynamically align or coordinate with ER/Golgi paths." }
+        q1: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text explicitly states: 'This physico-chemical approach to study and understand living organisms is called Reductionist Biology.'" },
+        q2: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text notes: 'His discovery of the triple helical structure of collagen published in Nature in 1954...'" },
+        q3: { correct: "C", exp: "<strong>Correct Answer: C.</strong> The text notes: '...and his analysis of the allowed conformations of proteins through the use of the Ramachandran plot rank among the most outstanding contributions...'" },
+        q4: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text states: 'G.N. RAMACHANDRAN... was the founder of the Madras school of conformational analysis of biopolymers.'" },
+        q5: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text notes: 'While at Cambridge, Ramachandran met Linus Pauling and was deeply influenced by his publications on models of the a-helix and b-sheet structures...'" },
+        q6: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text explicitly states: 'Antonie Von Leeuwenhoek first saw and described a live cell.'" },
+        q7: { correct: "C", exp: "<strong>Correct Answer: C.</strong> The text states: 'He also concluded, based on his studies on plant tissues, that the presence of cell wall is a unique character of the plant cells.'" },
+        q8: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The paragraph notes: 'Mycoplasmas, the smallest cells, are only 0.3 mm in length while bacteria could be 3 to 5 µm. Human red blood cells are about 7.0 µm in diameter.'" },
+        q9: { correct: "D", exp: "<strong>Correct Answer: D.</strong> The text states: 'A specialised differentiated form of cell membrane called mesosome is the characteristic of prokaryotes. They are essentially infoldings of cell membrane.'" },
+        q10: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text notes: 'This mystery was the requirement of integrity of cellular organisation for living phenomena to be demonstrated or observed.'" },
+        q11: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text notes: 'In human beings, the membrane of the erythrocyte has approximately 52 per cent protein and 40 per cent lipids.'" },
+        q12: { correct: "A", exp: "<strong>Correct Answer: A.</strong> The summary text notes: 'The grana, in the plastid, is the site of light reactions and the stroma of dark reactions.'" },
+        q13: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text states: 'In prokaryotes... made of two subunits - 50S and 30S units which when present together form 70S prokaryotic ribosomes.'" },
+        q14: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text structural details show that prokaryotic ribosomes measure roughly 15 nm by 20 nm in size." },
+        q15: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text sets: 'Algae have cell wall, made of cellulose, galactans, mannans and minerals like calcium carbonate...'" },
+        q16: { correct: "C", exp: "<strong>Correct Answer: C.</strong> The text sets: 'The middle lamella is a layer mainly of calcium pectate which holds or glues the different neighbouring cells together.'" },
+        q17: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text states the axoneme core possesses 9 peripheral microtubule doublets arranged radially along with one centrally located pair." },
+        q18: { correct: "C", exp: "<strong>Correct Answer: C.</strong> The text notes a single human cell distributes roughly a 2-metre total thread allocation of DNA across its chromosomes." },
+        q19: { correct: "C", exp: "<strong>Correct Answer: C.</strong> The text classifies chromosomes: 'In case of acrocentric chromosome the centromere is situated close to its end forming one extremely short and one very long arm...'" },
+        q20: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text details: 'Nucleus as a cell organelle was first described by Robert Brown as early as 1831.'" },
+        q21: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text details: 'Later the material of the nucleus stained by the basic dyes was given the name chromatin by Flemming.'" },
+        q22: { correct: "B", exp: "<strong>Correct Answer: B.</strong> The text notes that pigment-storing membranous cytoplasmic extensions present in cyanobacteria are chromatophores." },
+        q23: { correct: "A", exp: "<strong>Correct Answer: A.</strong> The text notes animal cells house a non-membrane bound centrosome configuration designed to facilitate division." },
+        q24: { correct: "D", exp: "<strong>Correct Answer: D.</strong> Statement I is incorrect because form descriptions only demonstrated diversity. Statement II is correct." },
+        q25: { correct: "A", exp: "<strong>Correct Answer: A.</strong> Both structural statements are true, matching the text regarding ribosomes occurring on rough ER, inside plastids/mitochondria, and free in cytoplasm." },
+        q26: { correct: "A", exp: "<strong>Correct Answer: A.</strong> Both statements accurately map text facts. The growth capacity belongs to the primary layer, while secondary walls deposit on the inner boundary." },
+        q27: { correct: "D", exp: "<strong>Correct Answer: D.</strong> Statement I is false because it inverts standard definitions (chloroplasts store chlorophyll). Statement II is explicitly text-validated." },
+        q28: { correct: "D", exp: "<strong>Correct Answer: D.</strong> Statement I is false because the text explicitly emphasizes that pili and fimbriae 'do not play a role in motility.' Statement II is true." },
+        q29: { correct: "D", exp: "<strong>Correct Answer: D.</strong> Statement I is incorrect because the text states the nucleolus completely lacks an individual membrane system boundary layer. Statement II is correct." },
+        q30: { correct: "A", exp: "<strong>Correct Answer: A.</strong> Both statements are true, and the ability to describe configurations in molecular terms explains why we apply a physico-chemical framework." },
+        q31: { correct: "A", exp: "<strong>Correct Answer: A.</strong> The absolute structural failure of any partial, sub-cellular combination to sustain an independent lifecycle is the logical proof that the whole cell forms the fundamental baseline unit." },
+        q32: { correct: "A", exp: "<strong>Correct Answer: A.</strong> The dynamic lateral shifting movements executed by proteins across the lipid matrix layer define the parameter used to measure overall membrane fluidity." },
+        q33: { correct: "A", exp: "<strong>Correct Answer: A.</strong> The architectural boundary barrier separating internal matrix contents from outside factors is created by the dual parallel membrane design containing a 10-50 nm perinuclear zone." },
+        q34: { correct: "A", exp: "<strong>Correct Answer: A.</strong> The containment of the chromatin matrix network (which houses DNA elements) explains why the nucleus serves as the operational hub controlling heredity." },
+        q35: { correct: "A", exp: "<strong>Correct Answer: A.</strong> Both are true. The statement in the reason accurately defines why these three organelles are excluded from the endomembrane system—their metabolic steps do not coordination with ER/Golgi paths." }
     };
 
     function updateUI() {
@@ -662,7 +662,7 @@
         const expBox = document.getElementById(`exp_${key}`);
 
         if (!selected) {
-            alert("Please pick an option before checking the answer logic.");
+            alert("Please select an option before checking the answer logic.");
             return;
         }
 
@@ -687,11 +687,9 @@
     }
 
     function resetQuiz() {
-        // Reset counters and configurations
         currentQuestion = 1;
         score = 0;
         
-        // Clear tracking matrices
         for (let key in quizAnswers) {
             delete validatedQuestions[key];
             let expBox = document.getElementById(`exp_${key}`);
@@ -702,10 +700,7 @@
             }
         }
         
-        // Reset radio input groups
         document.getElementById("quizForm").reset();
-        
-        // Re-enable form visibility fields
         document.getElementById("result-screen").style.display = "none";
         document.getElementById("quiz-screen").style.display = "block";
         
