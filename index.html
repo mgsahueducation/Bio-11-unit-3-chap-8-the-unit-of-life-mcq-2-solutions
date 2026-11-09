@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MG SAHU EDUCATION BLOG - NEET Biology Practice</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+        }
+        .quiz-container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .brand-header {
+            text-align: center;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .brand-header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            letter-spacing: 1px;
+        }
+        .brand-header p {
+            margin: 5px 0 0 0;
+            font-size: 1em;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        .meta-status-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95em;
+            color: #4a5568;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #edf2f7;
+            font-weight: bold;
+        }
+        .live-score {
+            color: #2b6cb0;
+            background-color: #ebf8ff;
+            padding: 2px 10px;
+            border-radius: 4px;
+        }
+        .question-box {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .question-box.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .question-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        .option-label {
+            display: block;
+            background: #fff;
+            border: 1px solid #cbd5e0;
+            padding: 12px 15px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option-label:hover {
+            background: #ebf8ff;
+            border-color: #bee3f8;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.1);
+        }
+        .explanation-box {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 0.95em;
+        }
+        .correct-bg {
+            background-color: #c6f6d5;
+            border: 1px solid #c3e6cb;
+            color: #22543d;
+        }
+        .wrong-bg {
+            background-color: #fed7d7;
+            border: 1px solid #f5c6cb;
+            color: #742a2a;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 20px;
+            font-size: 0.95em;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-nav {
+            background-color: #edf2f7;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+        }
+        .btn-nav:hover:not(:disabled) {
+            background-color: #e2e8f0;
+        }
+        .btn-nav:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .btn-action {
+            background-color: #3182ce;
+            color: white;
+        }
+        .btn-action:hover {
+            background-color: #2b6cb0;
+        }
+        .btn-reset {
+            background-color: #e53e3e;
+            color: white;
+        }
+        .btn-reset:hover {
+            background-color: #c53030;
+        }
+        #result-screen {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        .score-display {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #2b6cb0;
+            margin: 20px 0;
+            background: #ebf8ff;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+        .ar-guide {
+            background-color: #f7fafc;
+            border: 1px dashed #cbd5e0;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.88em;
+            margin-bottom: 15px;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <!-- Brand Header Header -->
+    <div class="brand-header">
+        <h1>MG SAHU EDUCATION BLOG</h1>
+        <p>📞 Contact Helpline: +91 9379024799</p>
+    </div>
+
+    <div id="quiz-screen">
+        <div class="meta-status-bar">
+            <span id="progressText">Question 1 of 35</span>
+            <span>Verified Score: <span class="live-score" id="liveScoreText">0 / 35</span></span>
+        </div>
+        
+        <form id="quizForm">
+            
+            <!-- Q1 -->
+            <div class="question-box active" id="qBox_1">
+                <div class="question-text">1. Which one of the following statements/approaches refers to 'Reductionist Biology'?</div>
+                <label class="option-label"><input type="radio" name="q1" value="A"> A) The historical cataloging of organismal diversity</label>
+                <label class="option-label"><input type="radio" name="q1" value="B"> B) The physico-chemical approach to study and understand living organisms</label>
+                <label class="option-label"><input type="radio" name="q1" value="C"> C) The observation of dynamic ecological food webs</label>
+                <label class="option-label"><input type="radio" name="q1" value="D"> D) The purely behavioral documentation of macroscopic organisms</label>
+                <div id="exp_q1" class="explanation-box"></div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question-box" id="qBox_2">
+                <div class="question-text">2. Who discovered the triple helical structure of collagen, and in which journal was it published?</div>
+                <label class="option-label"><input type="radio" name="q2" value="A"> A) Linus Pauling, Nature in 1949</label>
+                <label class="option-label"><input type="radio" name="q2" value="B"> B) G.N. Ramachandran, Nature in 1954</label>
+                <label class="option-label"><input type="radio" name="q2" value="C"> C) Flemming, Cambridge in 1954</label>
+                <label class="option-label"><input type="radio" name="q2" value="D"> D) Rudolf Virchow, Nature in 1855</label>
+                <div id="exp_q2" class="explanation-box"></div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question-box" id="qBox_3">
+                <div class="question-text">3. What tool or plot is used for the analysis of the allowed conformations of proteins?</div>
+                <label class="option-label"><input type="radio" name="q3" value="A"> A) Electron microscopic grid</label>
+                <label class="option-label"><input type="radio" name="q3" value="B"> B) The Pauling Sheet Matrix</label>
+                <label class="option-label"><input type="radio" name="q3" value="C"> C) The 'Ramachandran plot'</label>
+                <label class="option-label"><input type="radio" name="q3" value="D"> D) The Axoneme grid array</label>
+                <div id="exp_q3" class="explanation-box"></div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question-box" id="qBox_4">
+                <div class="question-text">4. G.N. Ramachandran was the founder of which school of conformational analysis?</div>
+                <label class="option-label"><input type="radio" name="q4" value="A"> A) The Cambridge school of structural biology</label>
+                <label class="option-label"><input type="radio" name="q4" value="B"> B) The 'Madras school' of conformational analysis of biopolymers</label>
+                <label class="option-label"><input type="radio" name="q4" value="C"> C) The Cochin Institute of Mathematical Biology</label>
+                <label class="option-label"><input type="radio" name="q4" value="D"> D) The NTA Matrix Academy</label>
+                <div id="exp_q4" class="explanation-box"></div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question-box" id="qBox_5">
+                <div class="question-text">5. Which famous scientist deeply influenced G.N. Ramachandran at Cambridge University regarding models of alpha-helix and beta-sheet structures?</div>
+                <label class="option-label"><input type="radio" name="q5" value="A"> A) Robert Brown</label>
+                <label class="option-label"><input type="radio" name="q5" value="B"> B) Linus Pauling</label>
+                <label class="option-label"><input type="radio" name="q5" value="C"> C) Matthias Schleiden</label>
+                <label class="option-label"><input type="radio" name="q5" value="D"> D) Theodore Schwann</label>
+                <div id="exp_q5" class="explanation-box"></div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="question-box" id="qBox_6">
+                <div class="question-text">6. Who first saw and described a live cell?</div>
+                <label class="option-label"><input type="radio" name="q6" value="A"> A) Robert Brown</label>
+                <label class="option-label"><input type="radio" name="q6" value="B"> B) Antonie Von Leeuwenhoek</label>
+                <label class="option-label"><input type="radio" name="q6" value="C"> C) Rudolf Virchow</label>
+                <label class="option-label"><input type="radio" name="q6" value="D"> D) Theodore Schwann</label>
+                <div id="exp_q6" class="explanation-box"></div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="question-box" id="qBox_7">
+                <div class="question-text">7. Theodore Schwann, based on his studies on plant tissues, concluded that a unique character of plant cells is the presence of:</div>
+                <label class="option-label"><input type="radio" name="q7" value="A"> A) A thin plasma membrane outer boundary</label>
+                <label class="option-label"><input type="radio" name="q7" value="B"> B) A naked genomic circular plasmid</label>
+                <label class="option-label"><input type="radio" name="q7" value="C"> C) A cell wall</label>
+                <label class="option-label"><input type="radio" name="q7" value="D"> D) Non-membrane bound centrosomes</label>
+                <div id="exp_q7" class="explanation-box"></div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="question-box" id="qBox_8">
+                <div class="question-text">8. Which of the following is correct regarding the structural dimensions of Mycoplasmas and human red blood cells in the text?</div>
+                <label class="option-label"><input type="radio" name="q8" value="A"> A) Mycoplasmas are 3 to 5 µm; Human RBCs are 7.0 µm</label>
+                <label class="option-label"><input type="radio" name="q8" value="B"> B) Mycoplasmas are 0.3 mm in length; Human RBCs are about 7.0 µm in diameter</label>
+                <label class="option-label"><input type="radio" name="q8" value="C"> C) Mycoplasmas are 0.1 µm in length; Human RBCs are 7.0 mm</label>
+                <label class="option-label"><input type="radio" name="q8" value="D"> D) Mycoplasmas are 0.02 µm; Human RBCs are 7.0 µm</label>
+                <div id="exp_q8" class="explanation-box"></div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="question-box" id="qBox_9">
+                <div class="question-text">9. A specialized differentiated form of cell membrane that is a characteristic infolding of prokaryotes is called:</div>
+                <label class="option-label"><input type="radio" name="q9" value="A"> A) Plasmid</label>
+                <label class="option-label"><input type="radio" name="q9" value="B"> B) Capsule</label>
+                <label class="option-label"><input type="radio" name="q9" value="C"> C) Glycocalyx</label>
+                <label class="option-label"><input type="radio" name="q9" value="D"> D) Mesosome</label>
+                <div id="exp_q9" class="explanation-box"></div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="question-box" id="qBox_10">
+                <div class="question-text">10. What is the fundamental requirement for living phenomena to be demonstrated or observed?</div>
+                <label class="option-label"><input type="radio" name="q10" value="A"> A) The isolation of elements using cell-free systems</label>
+                <label class="option-label"><input type="radio" name="q10" value="B"> B) The integrity of cellular organisation</label>
+                <label class="option-label"><input type="radio" name="q10" value="C"> C) The accumulation of dynamic organic compounds outside membranes</label>
+                <label class="option-label"><input type="radio" name="q10" value="D"> D) Shuffling chromosome pairs during interphase</label>
+                <div id="exp_q10" class="explanation-box"></div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="question-box" id="qBox_11">
+                <div class="question-text">11. In human beings, what is the exact percentage of protein and lipid present in the membrane of the erythrocyte?</div>
+                <label class="option-label"><input type="radio" name="q11" value="A"> A) 40% protein and 52% lipids</label>
+                <label class="option-label"><input type="radio" name="q11" value="B"> B) 52% protein and 40% lipids</label>
+                <label class="option-label"><input type="radio" name="q11" value="C"> C) 70% protein and 30% lipids</label>
+                <label class="option-label"><input type="radio" name="q11" value="D"> D) 50% protein and 50% lipids</label>
+                <div id="exp_q11" class="explanation-box"></div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="question-box" id="qBox_12">
+                <div class="question-text">12. According to the summary text, the stroma and the grana in the chloroplast are the respective sites for:</div>
+                <label class="option-label"><input type="radio" name="q12" value="A"> A) Dark reactions and light reactions</label>
+                <label class="option-label"><input type="radio" name="q12" value="B"> B) Light reactions and dark reactions</label>
+                <label class="option-label"><input type="radio" name="q12" value="C"> C) Oxidative phosphorylation and translation</label>
+                <label class="option-label"><input type="radio" name="q12" value="D"> D) Glycogen synthesis and lipid packing</label>
+                <div id="exp_q12" class="explanation-box"></div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="question-box" id="qBox_13">
+                <div class="question-text">13. The subunit composition of prokaryotic 70S ribosomes consists of which two structural configurations?</div>
+                <label class="option-label"><input type="radio" name="q13" value="A"> A) 40S and 30S units</label>
+                <label class="option-label"><input type="radio" name="q13" value="B"> B) 50S and 30S units</label>
+                <label class="option-label"><input type="radio" name="q13" value="C"> C) 60S and 40S units</label>
+                <label class="option-label"><input type="radio" name="q13" value="D"> D) 50S and 40S units</label>
+                <div id="exp_q13" class="explanation-box"></div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="question-box" id="qBox_14">
+                <div class="question-text">14. What are the dimensional sizes printed for prokaryotic ribosomes in the provided NCERT paragraph?</div>
+                <label class="option-label"><input type="radio" name="q14" value="A"> A) 10 to 50 nm</label>
+                <label class="option-label"><input type="radio" name="q14" value="B"> B) 15 nm by 20 nm</label>
+                <label class="option-label"><input type="radio" name="q14" value="C"> C) 3 to 5 µm</label>
+                <label class="option-label"><input type="radio" name="q14" value="D"> D) 0.3 mm by 0.1 mm</label>
+                <div id="exp_q14" class="explanation-box"></div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="question-box" id="qBox_15">
+                <div class="question-text">15. Algae possess a rigid cell wall composed chemically of which distinct array of components?</div>
+                <label class="option-label"><input type="radio" name="q15" value="A"> A) Cellulose, hemicellulose, pectins, and structural proteins</label>
+                <label class="option-label"><input type="radio" name="q15" value="B"> B) Cellulose, galactans, mannans, and calcium carbonate</label>
+                <label class="option-label"><input type="radio" name="q15" value="C"> C) Chitin, lipids, cholesterol, and calcium pectate</label>
+                <label class="option-label"><input type="radio" name="q15" value="D"> D) Peptidoglycan, lipopolysaccharide, and slime molecules</label>
+                <div id="exp_q15" class="explanation-box"></div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="question-box" id="qBox_16">
+                <div class="question-text">16. The middle lamella layer that functions to hold or glue neighbouring cells together is composed primarily of:</div>
+                <label class="option-label"><input type="radio" name="q16" value="A"> A) Calcium carbonate</label>
+                <label class="option-label"><input type="radio" name="q16" value="B"> B) Saturated hydrocarbons</label>
+                <label class="option-label"><input type="radio" name="q16" value="C"> C) Calcium pectate</label>
+                <label class="option-label"><input type="radio" name="q16" value="D"> D) Hemicellulose</label>
+                <div id="exp_q16" class="explanation-box"></div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="question-box" id="qBox_17">
+                <div class="question-text">17. An electron microscopic study of the internal core of a eukaryotic cilium or flagellum (axoneme) reveals an array consisting of:</div>
+                <label class="option-label"><input type="radio" name="q17" value="A"> A) Nine peripheral triplets and zero central tubules</label>
+                <label class="option-label"><input type="radio" name="q17" value="B"> B) Nine doublets of radially arranged peripheral microtubules and a pair of centrally located microtubules</label>
+                <label class="option-label"><input type="radio" name="q17" value="C"> C) Nine radial hubs and 2 peripheral linkers</label>
+                <label class="option-label"><input type="radio" name="q17" value="D"> D) Dynamic arrangements of tubulin triplets linked to the plasma membrane</label>
+                <div id="exp_q17" class="explanation-box"></div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="question-box" id="qBox_18">
+                <div class="question-text">18. The total measured thread length of DNA distributed among the forty-six chromosomes of a single human cell is approximately:</div>
+                <label class="option-label"><input type="radio" name="q18" value="A"> A) 10 to 50 nanometres</label>
+                <label class="option-label"><input type="radio" name="q18" value="B"> B) 7.0 micrometres</label>
+                <label class="option-label"><input type="radio" name="q18" value="C"> C) Two metres</label>
+                <label class="option-label"><input type="radio" name="q18" value="D"> D) 0.3 millimetres</label>
+                <div id="exp_q18" class="explanation-box"></div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="question-box" id="qBox_19">
+                <div class="question-text">19. A chromosome having the centromere situated close to its end, resulting in the formation of one extremely short arm and one very long arm, is classified as:</div>
+                <label class="option-label"><input type="radio" name="q19" value="A"> A) Metacentric</label>
+                <label class="option-label"><input type="radio" name="q19" value="B"> B) Sub-metacentric</label>
+                <label class="option-label"><input type="radio" name="q19" value="C"> C) Acrocentric</label>
+                <label class="option-label"><input type="radio" name="q19" value="D"> D) Telocentric</label>
+                <div id="exp_q19" class="explanation-box"></div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="question-box" id="qBox_20">
+                <div class="question-text">20. Who first described the nucleus as a cell organelle, and in which year?</div>
+                <label class="option-label"><input type="radio" name="q20" value="A"> A) Flemming, 1831</label>
+                <label class="option-label"><input type="radio" name="q20" value="B"> B) Robert Brown, 1831</label>
+                <label class="option-label"><input type="radio" name="q20" value="C"> C) Rudolf Virchow, 1855</label>
+                <label class="option-label"><input type="radio" name="q20" value="D"> D) Robert Brown, 1855</label>
+                <div id="exp_q20" class="explanation-box"></div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="question-box" id="qBox_21">
+                <div class="question-text">21. Who gave the name chromatin to the nuclear material stained by basic dyes?</div>
+                <label class="option-label"><input type="radio" name="q21" value="A"> A) Robert Brown</label>
+                <label class="option-label"><input type="radio" name="q21" value="B"> B) Flemming</label>
+                <label class="option-label"><input type="radio" name="q21" value="C"> C) Matthias Schleiden</label>
+                <label class="option-label"><input type="radio" name="q21" value="D"> D) Singer and Nicolson</label>
+                <div id="exp_q21" class="explanation-box"></div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="question-box" id="qBox_22">
+                <div class="question-text">22. Membranous extensions containing pigments found into the cytoplasm of cyanobacteria are called:</div>
+                <label class="option-label"><input type="radio" name="q22" value="A"> A) Mesosomes</label>
+                <label class="option-label"><input type="radio" name="q22" value="B"> B) Chromatophores</label>
+                <label class="option-label"><input type="radio" name="q22" value="C"> C) Inclusion bodies</label>
+                <label class="option-label"><input type="radio" name="q22" value="D"> D) Plasmids</label>
+                <div id="exp_q22" class="explanation-box"></div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="question-box" id="qBox_23">
+                <div class="question-text">23. Which non-membrane bound organelle present in animal cells helps explicitly in cell division processes?</div>
+                <label class="option-label"><input type="radio" name="q23" value="A"> A) Centrosome</label>
+                <label class="option-label"><input type="radio" name="q23" value="B"> B) Lysosome</label>
+                <label class="option-label"><input type="radio" name="q23" value="C"> C) Ribosome</label>
+                <label class="option-label"><input type="radio" name="q23" value="D"> D) Nucleolus</label>
+                <div id="exp_q23" class="explanation-box"></div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="question-box" id="qBox_24">
+                <div class="question-text">24. Evaluate the following statements:<br><strong>Statement I:</strong> The detailed description of the form and appearance of living organisms emphasized the unity underlying their diversity.<br><strong>Statement II:</strong> Applying the concepts and techniques of physics and chemistry to understand biology is termed 'Reductionist Biology'.</div>
+                <label class="option-label"><input type="radio" name="q24" value="A"> A) Both Statement I and Statement II are correct</label>
+                <label class="option-label"><input type="radio" name="q24" value="B"> B) Both Statement I and Statement II are incorrect</label>
+                <label class="option-label"><input type="radio" name="q24" value="C"> C) Statement I is correct but Statement II is incorrect</label>
+                <label class="option-label"><input type="radio" name="q24" value="D"> D) Statement I is incorrect but Statement II is correct</label>
+                <div id="exp_q24" class="explanation-box"></div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="question-box" id="qBox_25">
+                <div class="question-text">25. Evaluate the following statements:<br><strong>Statement I:</strong> Ribosomes are non-membrane bound organelles found in all cells - both eukaryotic as well as prokaryotic.<br><strong>Statement II:</strong> Within a plant cell, ribosomes are found in the cytoplasm, within chloroplasts, within mitochondria, and on rough ER.</div>
+                <label class="option-label"><input type="radio" name="q25" value="A"> A) Both Statement I and Statement II are correct</label>
+                <label class="option-label"><input type="radio" name="q25" value="B"> B) Both Statement I and Statement II are incorrect</label>
+                <label class="option-label"><input type="radio" name="q25" value="C"> C) Statement I is correct but Statement II is incorrect</label>
+                <label class="option-label"><input type="radio" name="q25" value="D"> D) Statement I is incorrect but Statement II is correct</label>
+                <div id="exp_q25" class="explanation-box"></div>
+            </div>
+
+            <!-- Q26 -->
+            <div class="question-box" id="qBox_26">
+                <div class="question-text">26. Evaluate the following statements:<br><strong>Statement I:</strong> The primary wall of a young plant cell is capable of growth, which gradually diminishes as the cell matures.<br><strong>Statement II:</strong> The secondary wall is formed on the inner side (towards membrane) of the cell.</div>
+                <label class="option-label"><input type="radio" name="q26" value="A"> A) Both Statement I and Statement II are correct</label>
+                <label class="option-label"><input type="radio" name="q26" value="B"> B) Both Statement I and Statement II are incorrect</label>
+                <label class="option-label"><input type="radio" name="q26" value="C"> C) Statement I is correct but Statement II is incorrect</label>
+                <label class="option-label"><input type="radio" name="q26" value="D"> D) Statement I is incorrect but Statement II is correct</label>
+                <div id="exp_q26" class="explanation-box"></div>
+            </div>
+
+            <!-- Q27 -->
+            <div class="question-box" id="qBox_27">
+                <div class="question-text">27. Evaluate the following statements:<br><strong>Statement I:</strong> Chromoplasts are green-coloured plastids containing chlorophyll, while chloroplasts contain pigments like carotene.<br><strong>Statement II:</strong> Plastids are pigment-containing organelles found in plant cells only.</div>
+                <label class="option-label"><input type="radio" name="q27" value="A"> A) Both Statement I and Statement II are correct</label>
+                <label class="option-label"><input type="radio" name="q27" value="B"> B) Both Statement I and Statement II are incorrect</label>
+                <label class="option-label"><input type="radio" name="q27" value="C"> C) Statement I is correct but Statement II is incorrect</label>
+                <label class="option-label"><input type="radio" name="q27" value="D"> D) Statement I is incorrect but Statement II is correct</label>
+                <div id="exp_q27" class="explanation-box"></div>
+            </div>
+
+            <!-- Q28 -->
+            <div class="question-box" id="qBox_28">
+                <div class="question-text">28. Evaluate the following statements:<br><strong>Statement I:</strong> Pili and fimbriae are surface structures that play a major role in aiding bacterial cell motility.<br><strong>Statement II:</strong> Fimbriae sprout out as small bristle-like fibres and help attach bacteria to rocks in streams and host tissues.</div>
+                <label class="option-label"><input type="radio" name="q28" value="A"> A) Both Statement I and Statement II are correct</label>
+                <label class="option-label"><input type="radio" name="q28" value="B"> B) Both Statement I and Statement II are incorrect</label>
+                <label class="option-label"><input type="radio" name="q28" value="C"> C) Statement I is correct but Statement II is incorrect</label>
+                <label class="option-label"><input type="radio" name="q28" value="D"> D) Statement I is incorrect but Statement II is correct</label>
+                <div id="exp_q28" class="explanation-box"></div>
+            </div>
+
+            <!-- Q29 -->
+            <div class="question-box" id="qBox_29">
+                <div class="question-text">29. Evaluate the following statements:<br><strong>Statement I:</strong> The nucleolus is a highly specialized double-membrane bound independent barrier system inside the nucleus.<br><strong>Statement II:</strong> The content of the nucleolus is continuous with the rest of the nucleoplasm as it is not a membrane-bound structure.</div>
+                <label class="option-label"><input type="radio" name="q29" value="A"> A) Both Statement I and Statement II are correct</label>
+                <label class="option-label"><input type="radio" name="q29" value="B"> B) Both Statement I and Statement II are incorrect</label>
+                <label class="option-label"><input type="radio" name="q29" value="C"> C) Statement I is correct but Statement II is incorrect</label>
+                <label class="option-label"><input type="radio" name="q29" value="D"> D) Statement I is incorrect but Statement II is correct</label>
+                <div id="exp_q29" class="explanation-box"></div>
+            </div>
+
+            <!-- Q30 -->
+            <div class="question-box" id="qBox_30">
+                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation.<br>B = Both True + R is NOT correct explanation.<br>C = A is True, R is False.<br>D = Both False (or A False, R True).</div>
+                <div class="question-text">30. <strong>Assertion (A):</strong> In studying physiological and behavioural processes, one can take a physico-chemical approach using cell-free systems.<br><strong>Reason (R):</strong> A physico-chemical approach enables us to describe various biological processes in molecular terms.</div>
+                <label class="option-label"><input type="radio" name="q30" value="A"> A</label>
+                <label class="option-label"><input type="radio" name="q30" value="B"> B</label>
+                <label class="option-label"><input type="radio" name="q30" value="C"> C</label>
+                <label class="option-label"><input type="radio" name="q30" value="D"> D</label>
+                <div id="exp_q30" class="explanation-box"></div>
+            </div>
+
+            <!-- Q31 -->
+            <div class="question-box" id="qBox_31">
+                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation...</div>
+                <div class="question-text">31. <strong>Assertion (A):</strong> The cell is the fundamental structural and functional unit of all living organisms.<br><strong>Reason (R):</strong> Anything less than a complete structure of a cell does not ensure independent living.</div>
+                <label class="option-label"><input type="radio" name="q31" value="A"> A</label>
+                <label class="option-label"><input type="radio" name="q31" value="B"> B</label>
+                <label class="option-label"><input type="radio" name="q31" value="C"> C</label>
+                <label class="option-label"><input type="radio" name="q31" value="D"> D</label>
+                <div id="exp_q31" class="explanation-box"></div>
+            </div>
+
+            <!-- Q32 -->
+            <div class="question-box" id="qBox_32">
+                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation...</div>
+                <div class="question-text">32. <strong>Assertion (A):</strong> In the fluid mosaic model proposed by Singer and Nicolson, the fluidity of the membrane can be measured.<br><strong>Reason (R):</strong> The quasi-fluid nature of lipid enables the lateral movement of proteins within the overall bilayer.</div>
+                <label class="option-label"><input type="radio" name="q32" value="A"> A</label>
+                <label class="option-label"><input type="radio" name="q32" value="B"> B</label>
+                <label class="option-label"><input type="radio" name="q32" value="C"> C</label>
+                <label class="option-label"><input type="radio" name="q32" value="D"> D</label>
+                <div id="exp_q32" class="explanation-box"></div>
+            </div>
+
+            <!-- Q33 -->
+            <div class="question-box" id="qBox_33">
+                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation...</div>
+                <div class="question-text">33. <strong>Assertion (A):</strong> The nuclear envelope forms a physical barrier between the materials present inside the nucleus and that of the cytoplasm.<br><strong>Reason (R):</strong> The nuclear envelope consists of two parallel membranes with a perinuclear space measuring 10 to 50 nm between them.</div>
+                <label class="option-label"><input type="radio" name="q33" value="A"> A</label>
+                <label class="option-label"><input type="radio" name="q33" value="B"> B</label>
+                <label class="option-label"><input type="radio" name="q33" value="C"> C</label>
+                <label class="option-label"><input type="radio" name="q33" value="D"> D</label>
+                <div id="exp_q33" class="explanation-box"></div>
+            </div>
+
+            <!-- Q34 -->
+            <div class="question-box" id="qBox_34">
+                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation...</div>
+                <div class="question-text">34. <strong>Assertion (A):</strong> The nucleus plays a major role in heredity and controls the activities of cellular organelles.<br><strong>Reason (R):</strong> The nucleus contains nucleoli and a chromatin network.</div>
+                <label class="option-label"><input type="radio" name="q34" value="A"> A</label>
+                <label class="option-label"><input type="radio" name="q34" value="B"> B</label>
+                <label class="option-label"><input type="radio" name="q34" value="C"> C</label>
+                <label class="option-label"><input type="radio" name="q34" value="D"> D</label>
+                <div id="exp_q34" class="explanation-box"></div>
+            </div>
+
+            <!-- Q35 -->
+            <div class="question-box" id="qBox_35">
+                <div class="ar-guide"><strong>A-R Options Reference:</strong><br>A = Both True + R is correct explanation...</div>
+                <div class="question-text">35. <strong>Assertion (A):</strong> Mitochondria, chloroplasts, and peroxisomes are not considered a part of the endomembrane system.<br><strong>Reason (R):</strong> The functions of mitochondria, chloroplasts, and peroxisomes are not coordinated with components like the endoplasmic reticulum and Golgi complex.</div>
+                <label class="option-label"><input type="radio" name="q35" value="A"> A</label>
+                <label class="option-label"><input type="radio" name="q35" value="B"> B</label>
+                <label class="option-label"><input type="radio" name="q35" value="C"> C</label>
+                <label class="option-label"><input type="radio" name="q35" value="D"> D</label>
+                <div id="exp_q35" class="explanation-box"></div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="nav-buttons">
+                <button type="button" class="btn btn-nav" id="btnPrev" onclick="navigate(-1)" disabled>Previous</button>
+                <button type="button" class="btn btn-action" id="btnCheck" onclick="checkCurrentAnswer()">Verify Answer</button>
+                <button type="button" class="btn btn-nav" id="btnNext" onclick="navigate(1)">Next</button>
+                <button type="button" class="btn btn-reset" onclick="resetQuiz()">Reset Test</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Screen Displays Result Metrics -->
+    <div id="result-screen">
+        <h2>🎉 Mock Assessment Completed!</h2>
+        <p>Your responses have been processed through the NCERT data tracking sheet.</p>
+        <div class="score-display" id="finalScoreText">0 / 35</div>
+        <div class="nav-buttons" style="justify-content: center;">
+            <button type="button" class="btn btn-reset" onclick="resetQuiz()">Restart Session</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentQuestion = 1;
+    const totalQuestions = 35;
+    let score = 0;
+    const validatedQuestions = {};
+
+    const quizAnswers = {
+        q1: { correct: "B", exp: "<strong>NCERT Context:</strong> Section introduction states that the physico-chemical approach to study biological structures in molecular terms is termed 'Reductionist Biology'." },
+        q2: { correct: "B", exp: "<strong>NCERT Context:</strong> The biography profile mentions G.N. Ramachandran published the triple helical structure configurations of collagen in the journal Nature in 1954." },
+        q3: { correct: "C", exp: "<strong>NCERT Context:</strong> Factual details state that the analysis of allowed conformations of protein structures maps through the 'Ramachandran plot'." },
+        q4: { correct: "B", exp: "<strong>NCERT Context:</strong> Text notes G.N. Ramachandran was the specific founder of the 'Madras school' of conformational analysis of biopolymers." },
+        q5: { correct: "B", exp: "<strong>NCERT Context:</strong> Biography states that while at Cambridge University, Ramachandran met Linus Pauling and was deeply influenced by his models." },
+        q6: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.1 explicitly records: 'Antonie Von Leeuwenhoek first saw and described a live cell.'" },
+        q7: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.2 states that Schwann concluded, based on plant tissue analytics, that the cell wall presence is a unique signature character." },
+        q8: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.3 explicitly details: 'Mycoplasmas... are only 0.3 mm in length while bacteria could be 3 to 5 µm. Human red blood cells are about 7.0 µm in diameter.'" },
+        q9: { correct: "D", exp: "<strong>NCERT Context:</strong> Section 8.4 notes that the characteristic cell membrane infolding extensions present inside prokaryotes are called mesosomes." },
+        q10: { correct: "B", exp: "<strong>NCERT Context:</strong> Section introduction notes that demonstrating living processes requires the structural integrity of cellular organization." },
+        q11: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.1 establishes: 'In human beings, the membrane of the erythrocyte has approximately 52 per cent protein and 40 per cent lipids.'" },
+        q12: { correct: "A", exp: "<strong>NCERT Context:</strong> Chapter summary text explicitly isolates locations: 'The grana, in the plastid, is the site of light reactions and the stroma of dark reactions.'" },
+        q13: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.4.2 explicitly details prokaryotic configuration: '...made of two subunits - 50S and 30S units which when present together form 70S prokaryotic ribosomes.'" },
+        q14: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.4.2 structural details show that prokaryotic ribosomes measure roughly 15 nm by 20 nm in size." },
+        q15: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.2 sets: 'Algae have cell wall, made of cellulose, galactans, mannans and minerals like calcium carbonate...'" },
+        q16: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.5.2 sets: 'The middle lamella is a layer mainly of calcium pectate which holds or glues the different neighbouring cells together.'" },
+        q17: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.8 states the axoneme core possesses 9 peripheral microtuble doublets arranged radially along with one centrally located pair." },
+        q18: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.5.10 notes a single human cell distributes roughly a 2-metre total thread allocation of DNA across its chromosomes." },
+        q19: { correct: "C", exp: "<strong>NCERT Context:</strong> Section 8.5.10 classifies chromosomes: 'In case of acrocentric chromosome the centromere is situated close to its end forming one extremely short and one very long arm...'" },
+        q20: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.10 details: 'Nucleus as a cell organelle was first described by Robert Brown as early as 1831.'" },
+        q21: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.5.10 details: 'Later the material of the nucleus stained by the basic dyes was given the name chromatin by Flemming.'" },
+        q22: { correct: "B", exp: "<strong>NCERT Context:</strong> Section 8.4.1 notes that pigment-storing membranous cytoplasmic extensions present in cyanobacteria are chromatophores." },
+        q23: { correct: "A", exp: "<strong>NCERT Context:</strong> Section 8.3 notes animal cells house a non-membrane bound centrosome configuration designed to facilitate division." },
+        q24: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is false because macroscopic description filters only documented diversity signatures. Statement II matches the text definition." },
+        q25: { correct: "A", exp: "<strong>NCERT Analysis:</strong> Both structural statements are true, matching the text regarding ribosomes occurring on rough ER, inside plastids/mitochondria, and free in cytoplasm." },
+        q26: { correct: "A", exp: "<strong>NCERT Analysis:</strong> Both statements accurately map text facts. The growth capacity belongs to the primary layer, while secondary walls deposit on the inner boundary." },
+        q27: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is false because it inverts standard definitions (chloroplasts store chlorophyll). Statement II is explicitly text-validated." },
+        q28: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is completely false because the text explicitly emphasizes that pili and fimbriae 'do not play a role in motility.' Statement II is true." },
+        q29: { correct: "D", exp: "<strong>NCERT Analysis:</strong> Statement I is incorrect because the text states the nucleolus completely lacks an individual membrane system boundary layer. Statement II is correct." },
+        q30: { correct: "A", exp: "<strong>Logic Architecture:</strong> Both facts are correct. The capacity to translate structural reactions into precise molecular variables provides the explanation for adopting a physico-chemical system approach." },
+        q31: { correct: "A", exp: "<strong>Logic Architecture:</strong> The absolute structural failure of any partial, sub-cellular combination to sustain an independent lifecycle is the logical proof that the whole cell forms the fundamental baseline unit." },
+        q32: { correct: "A", exp: "<strong>Logic Architecture:</strong> The dynamic lateral shifting movements executed by proteins across the lipid matrix layer define the parameter used to measure overall membrane fluidity." },
+        q33: { correct: "A", exp: "<strong>Logic Architecture:</strong> The architectural boundary barrier separating internal matrix contents from outside factors is created by the dual parallel membrane design containing a 10-50 nm perinuclear zone." },
+        q34: { correct: "A", exp: "<strong>Logic Architecture:</strong> The containment of the chromatin matrix network (which houses DNA elements) explains why the nucleus serves as the operational hub controlling heredity." },
+        q35: { correct: "A", exp: "<strong>Logic Architecture:</strong> Both are true. The statement in the reason accurately defines why these three organelles are excluded from the endomembrane system—their metabolic steps do not dynamically align or coordinate with ER/Golgi paths." }
+    };
+
+    function updateUI() {
+        document.getElementById("progressText").innerText = `Question ${currentQuestion} of ${totalQuestions}`;
+        document.getElementById("liveScoreText").innerText = `${score} / ${totalQuestions}`;
+        
+        for (let i = 1; i <= totalQuestions; i++) {
+            document.getElementById(`qBox_${i}`).classList.remove("active");
+        }
+        document.getElementById(`qBox_${currentQuestion}`).classList.add("active");
+
+        document.getElementById("btnPrev").disabled = (currentQuestion === 1);
+        
+        if (currentQuestion === totalQuestions) {
+            document.getElementById("btnNext").innerText = "Finish Exam";
+            document.getElementById("btnNext").className = "btn btn-action";
+        } else {
+            document.getElementById("btnNext").innerText = "Next";
+            document.getElementById("btnNext").className = "btn btn-nav";
+        }
+
+        const currentKey = `q${currentQuestion}`;
+        const inputs = document.querySelectorAll(`input[name="${currentKey}"]`);
+        if (validatedQuestions[currentKey]) {
+            inputs.forEach(input => input.disabled = true);
+            document.getElementById("btnCheck").disabled = true;
+        } else {
+            inputs.forEach(input => input.disabled = false);
+            document.getElementById("btnCheck").disabled = false;
+        }
+    }
+
+    function navigate(direction) {
+        if (direction === 1 && currentQuestion === totalQuestions) {
+            showResults();
+            return;
+        }
+        
+        currentQuestion += direction;
+        updateUI();
+    }
+
+    function checkCurrentAnswer() {
+        const key = `q${currentQuestion}`;
+        if (validatedQuestions[key]) return;
+
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        const expBox = document.getElementById(`exp_${key}`);
+
+        if (!selected) {
+            alert("Please pick an option before checking the answer logic.");
+            return;
+        }
+
+        validatedQuestions[key] = true;
+        expBox.innerHTML = quizAnswers[key].exp;
+        expBox.style.display = "block";
+
+        if (selected.value === quizAnswers[key].correct) {
+            score++;
+            expBox.className = "explanation-box correct-bg";
+        } else {
+            expBox.className = "explanation-box wrong-bg";
+        }
+
+        updateUI();
+    }
+
+    function showResults() {
+        document.getElementById("quiz-screen").style.display = "none";
+        document.getElementById("result-screen").style.display = "block";
+        document.getElementById("finalScoreText").innerText = `${score} / ${totalQuestions} Marks`;
+    }
+
+    function resetQuiz() {
+        // Reset counters and configurations
+        currentQuestion = 1;
+        score = 0;
+        
+        // Clear tracking matrices
+        for (let key in quizAnswers) {
+            delete validatedQuestions[key];
+            let expBox = document.getElementById(`exp_${key}`);
+            if (expBox) {
+                expBox.style.display = "none";
+                expBox.className = "explanation-box";
+                expBox.innerHTML = "";
+            }
+        }
+        
+        // Reset radio input groups
+        document.getElementById("quizForm").reset();
+        
+        // Re-enable form visibility fields
+        document.getElementById("result-screen").style.display = "none";
+        document.getElementById("quiz-screen").style.display = "block";
+        
+        updateUI();
+    }
+</script>
+
+</body>
+</html>
